@@ -11,11 +11,11 @@ import sys
 from pathlib import Path
 
 # Add A.I.M. root to path
-sys.path.insert(0, "/home/kingb/aim")
-sys.path.insert(0, "/home/kingb/aim/aim_core")
+sys.path.insert(0, str(Path(__file__).parent.parent.parent.parent))
 
-from aim_core.lance_backend import VectorBackend
-from aim_core.plugins.datajack.forensic_utils import get_embedding
+
+from aim_memory.engine import VectorBackend
+from aim_memory.embeddings import get_embedding
 
 DATA_DIR = Path("/home/kingb/aim-memeval/benchmarks/longmemeval/data")
 TEST_FILE  = DATA_DIR / "longmemeval_s_cleaned.json"

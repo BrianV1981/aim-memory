@@ -34,7 +34,7 @@ if AIM_ROOT not in sys.path: sys.path.append(AIM_ROOT)
 src_dir = os.path.join(AIM_ROOT, "aim_core")
 if src_dir not in sys.path: sys.path.append(src_dir)
 
-from config_utils import CONFIG
+
 from .embeddings import get_embedding
 
 def get_fragment_hash(res):

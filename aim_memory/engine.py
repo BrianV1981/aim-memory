@@ -177,29 +177,7 @@ class VectorBackend:
             
         results = execute_query(table)
         
-        # Federated Querying against Parquet ROMs
-        cartridges_dir = os.path.join(AIM_ROOT, "archive", "cartridges")
-        if os.path.exists(cartridges_dir):
-            import pyarrow.dataset as ds
-            import glob
-            mem_db = lancedb.connect("memory://")
-            for parquet_file in glob.glob(os.path.join(cartridges_dir, "*.parquet")):
-                try:
-                    table_name = os.path.basename(parquet_file)
-                    if table_name not in mem_db.table_names():
-                        dataset = ds.dataset(parquet_file)
-                        t = mem_db.create_table(table_name, data=dataset)
-                        try:
-                            t.create_fts_index("content", replace=True)
-                        except:
-                            pass # If FTS index creation fails on dataset, skip
-                    else:
-                        t = mem_db.open_table(table_name)
-                    
-                    rom_results = execute_query(t)
-                    results.extend(rom_results)
-                except Exception as e:
-                    print(f"[WARNING] Failed to search ROM {parquet_file}: {e}")
+        
                     
         # Sort combined results by score
         results.sort(key=lambda x: x.get("score", 0), reverse=True)

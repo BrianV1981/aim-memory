@@ -9,13 +9,13 @@ import math
 from google import genai
 
 # --- CONFIGURATION (Dynamic Load) ---
-from config_utils import CONFIG, AIM_ROOT
-CONFIG_PATH = os.path.join(AIM_ROOT, "core/CONFIG.json")
+
+
 
 # --- PROVIDER LOGIC ---
-PROVIDER_TYPE = CONFIG['models'].get('embedding_provider', 'local') # google, local (ollama), openai-compat
-PROVIDER_MODEL = CONFIG['models'].get('embedding', 'nomic-embed-text')
-PROVIDER_ENDPOINT = CONFIG['models'].get('embedding_endpoint', 'http://127.0.0.1:11434/api/embeddings')
+PROVIDER_TYPE = 'local'
+PROVIDER_MODEL = 'nomic-embed-text'
+PROVIDER_ENDPOINT = 'http://127.0.0.1:11434/api/embeddings'
 
 
 def summarize_massive_turn(text, model_name="qwen3.5:4b"):

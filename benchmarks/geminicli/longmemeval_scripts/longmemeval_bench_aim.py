@@ -13,12 +13,12 @@ from typing import List
 
 # Add A.I.M. root to path
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
-sys.path.insert(0, str(Path(__file__).parent.parent.parent / "aim_core"))
 
-from aim_core.lance_backend import VectorBackend
-from aim_core.plugins.datajack.forensic_utils import get_embedding
 
-DATA_DIR = Path(__file__).parent / "data"
+from aim_memory.engine import VectorBackend
+from aim_memory.embeddings import get_embedding
+
+DATA_DIR = Path("/home/kingb/aim-memeval/benchmarks/longmemeval/data")
 ORACLE_FILE = DATA_DIR / "longmemeval_oracle.json"
 TEST_FILE  = DATA_DIR / "longmemeval_s_cleaned.json"
 
