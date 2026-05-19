@@ -4,6 +4,10 @@
   <p><em>The mathematically verified, 95.6% Recall standalone memory engine for AI Agents.</em></p>
 </div>
 
+<div align="center">
+  <a href="https://www.buymeacoffee.com/BrianV1981" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
+</div>
+
 ---
 
 **A.I.M. Memory** is a highly portable, zero-setup Retrieval-Augmented Generation (RAG) module extracted from the core A.I.M. Engineering Exoskeleton. 
@@ -106,8 +110,22 @@ All benchmarking logic is organized inside the `benchmarks/` directory, separate
 
 *(Note: The actual 500MB+ compiled LanceDB vector databases are excluded from this repository via `.gitignore` to maintain a lightweight package size. You can effortlessly rebuild them locally in ~30 minutes using the provided `build_memeval_lance.py` scripts).*
 
+
+---
+
+## 🤖 The Parent Project: A.I.M. Swarm OS
+
+**`aim-memory` is a modular, standalone replica extracted directly from my core project: [A.I.M. (Actual Intelligent Memory)](https://github.com/BrianV1981/aim).**
+
+A.I.M. is an open-source engineering exoskeleton designed to solve context amnesia and drift in long-running autonomous AI coding sessions. While I have massive plans for the broader A.I.M. ecosystem (including GitOps bridges and cognitive routing), my absolute primary focus lately has been perfecting **memory retrieval**. 
+
+I realized that if an agent can't mathematically remember a fact from 40 sessions ago, it can't function autonomously. That obsession led to the creation of the RAG 5.21 architecture you see in this repository. 
+
+I am incredibly proud of achieving the 95.6% score on LongMemEval, but I know the finish line is always moving. I am actively looking forward to LongMemEval-V2 and the brutal new challenges it will pose to vector retrieval engines!
+
 ---
 
 ## ⚖️ License
+
 
 Released under the MIT License.
