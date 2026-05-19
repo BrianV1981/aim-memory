@@ -1,8 +1,13 @@
 # A.I.M. Memory (RAG 5.21)
 
+
 <div align="center">
   <p><em>The mathematically verified, 95.6% Recall standalone memory engine for AI Agents.</em></p>
+  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License"></a>
+  <img src="https://img.shields.io/badge/Python-3.10+-blue.svg" alt="Python Version">
+  <img src="https://img.shields.io/badge/LongMemEval-95.6%25_Recall-orange.svg" alt="LongMemEval">
 </div>
+
 
 <div align="center">
   <a href="https://www.buymeacoffee.com/BrianV1981" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
@@ -18,7 +23,9 @@ It is specifically engineered to solve the "Amnesia Problem" and "Entity Blindne
 
 On the rigorous academic **LongMemEval** "Needle in a Haystack" benchmark (19,195 complex, multi-session conversation histories, ICLR 2025), commercial enterprise systems typically score between 82% and 94% on end-to-end recall.
 
-Because A.I.M. Memory mathematically cures Entity Blindness, it effectively shatters the state-of-the-art leaderboard using only a free, local embedding model. It achieves a verified **95.6% Recall@5** score, and a staggering **88.2% Recall@1** score (meaning 88% of the time, the exact target is the very first document returned out of 100,000+ chunks).
+Because A.I.M. Memory mathematically cures Entity Blindness, it matches or exceeds current retrieval SOTA on the public LongMemEval leaderboard using only a free, local embedding model. It achieves a verified **95.6% Recall@5** score, and a staggering **88.2% Recall@1** score (meaning 88% of the time, the exact target is the very first document returned out of 100,000+ chunks).
+
+*(Note: The immutable JSON proof logs mapping the exact Tantivy FTS scores and retrievals for all 500 questions are explicitly located in `benchmarks/geminicli/longmemeval_scripts/`).*
 
 > **⚠️ Transparency Disclaimer (Retrieval vs. E2E):** 
 > Please note that the 95.6% score represents absolute **Retrieval Accuracy** (the mathematical ability of the database to pull the exact target document). Systems like OMEGA (95.4%) are graded on **End-to-End (E2E) QA Accuracy** (retrieving the document *and* generating a passing answer via an LLM like GPT-4). 
@@ -58,6 +65,14 @@ aim-memory/
 ```
 
 *(Note: For deep-dive explanations of the specific execution scripts, please navigate into the respective subdirectories and read their local README files).*
+
+---
+
+## 🗺️ Roadmap & Next Steps
+While the core RAG 5.21 retrieval engine is complete, ongoing enhancements include:
+*   **Agentic Query Rewriting:** Implementing an LLM pre-step to perform calendar math on temporal questions (e.g., converting "two weeks ago" into explicit timestamps).
+*   **FlashRank Cross-Encoding:** Integrating local `ms-marco-MiniLM-L-6-v2` re-ranking as an optional third pass for extreme edge cases.
+*   **LongMemEval-V2 Support:** Preparing the architecture for the next iteration of the benchmark.
 
 ---
 
