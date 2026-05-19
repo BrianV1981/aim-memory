@@ -33,6 +33,34 @@ This module does not rely on brute-forcing massive context windows or burning ex
 
 ---
 
+## 📂 Repository Structure
+
+```text
+aim-memory/
+├── aim_memory/                  # The standalone, pip-installable module
+│   ├── __init__.py              # Unified API (MemoryClient)
+│   ├── cli.py                   # Standalone command-line interface
+│   ├── embeddings.py            # Local Ollama embedding logic
+│   ├── engine.py                # LanceDB connection and PyArrow schemas
+│   └── retrieval.py             # Tantivy FTS and 1.5x Entity Reranker logic
+│
+├── benchmarks/                  # Execution scripts and immutable proof logs
+│   ├── databases/               # (Git ignored) Storage for massive .lance files
+│   ├── geminicli/               # Evaluators built for the Google Gemini CLI
+│   │   ├── locomo-v2/           # Scripts for interactive agent evaluation
+│   │   └── longmemeval_scripts/ # The pipeline that achieved the 95.6% score
+│   └── opencode/                # Evaluators built for DeepSeek/Claude forks
+│       └── locomo-v2/           # OpenCode TUI-specific orchestration
+│
+├── example.py                   # Quickstart test script
+├── requirements.txt             # 5 core dependencies (lancedb, tantivy, etc.)
+└── setup.py                     # Package installation configuration
+```
+
+*(Note: For deep-dive explanations of the specific execution scripts, please navigate into the respective subdirectories and read their local README files).*
+
+---
+
 ## 🚀 Installation & Setup
 
 Because this module is standalone, it requires zero cloud configuration. Everything runs locally on your own hardware.
@@ -113,7 +141,7 @@ All benchmarking logic is organized inside the `benchmarks/` directory, separate
 
 ---
 
-## 🤖 The Parent Project: A.I.M. Swarm OS
+## 🤖 The Parent Project: A.I.M. OS
 
 **`aim-memory` is a modular, standalone replica extracted directly from my core project: [A.I.M. (Actual Intelligent Memory)](https://github.com/BrianV1981/aim).**
 
