@@ -151,7 +151,7 @@ All benchmarking logic is organized inside the `benchmarks/` directory, separate
 *   **`benchmarks/geminicli/`**: Contains the execution scripts designed for the official Gemini CLI. (Includes the `longmemeval_scripts` used to achieve the 95.6% score).
 *   **`benchmarks/opencode/`**: Contains execution scripts adapted for the `aim-opencode` fork (DeepSeek/Claude).
 
-*(Note: The actual 500MB+ compiled LanceDB vector databases are excluded from this repository via `.gitignore` to maintain a lightweight package size. You can effortlessly rebuild them locally in ~30 minutes using the provided `build_memeval_lance.py` scripts).*
+*(Note: The actual 500MB+ compiled LanceDB vector databases are excluded from this repository via `.gitignore` to maintain a lightweight package size. You can rebuild them locally using the provided `build_memeval_lance.py` scripts, but **be warned this can take upwards of 12 hours** depending on your local GPU, as it requires generating 100,000+ embeddings via Ollama).*
 
 
 ---
