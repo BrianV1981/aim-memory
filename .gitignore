@@ -1,0 +1,7 @@
+# Protect GitHub from massive LanceDB directories
+benchmarks/databases/
+__pycache__/
+*.pyc
+.env
+benchmarks/geminicli/longmemeval_scripts/data/longmemeval_s_cleaned.json
+benchmarks/geminicli/longmemeval_scripts/data/raw_jsonl/
