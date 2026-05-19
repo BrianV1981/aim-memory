@@ -15,6 +15,14 @@ Contains all execution scripts, TUI spawners, and evaluators adapted for the `ai
 
 ---
 
-> **⚠️ Note on Databases:**
-> The `benchmarks/databases/` directory (which houses the 500MB+ compiled LanceDB columnar vectors) is explicitly ignored by Git. 
-> To reproduce the benchmarks, you must first execute the corresponding ingestion scripts (e.g., `build_memeval_lance.py`) to generate the local database on your machine before running the evaluators.
+> **⚠️ Note on Databases & The 12-Hour Fast Track:**
+> The `benchmarks/databases/` directory (which houses the 500MB+ compiled LanceDB columnar vectors) is explicitly ignored by Git to avoid LFS limits. 
+> 
+> You can rebuild the database locally by running the ingestion scripts (e.g., `build_memeval_lance.py`), but **this will take upwards of 12 hours** depending on your GPU, as it requires embedding 100,000+ chunks via Ollama.
+> 
+> **THE FAST TRACK:** You can bypass the ingestion phase entirely by downloading the pre-compiled, mathematically verified database directly from HuggingFace. Run these commands from inside your `benchmarks/databases/` directory:
+> ```bash
+> wget https://huggingface.co/datasets/brianv1981/aim-longmemeval-memory-lance-db/resolve/main/memory_lance.tar.gz
+> tar -xzvf memory_lance.tar.gz
+> ```
+> This drops the fully optimized `memory_lance` database right into your workflow in 2 minutes, allowing you to run the evaluators instantly!
