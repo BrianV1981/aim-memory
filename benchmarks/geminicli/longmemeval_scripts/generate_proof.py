@@ -17,14 +17,14 @@ sys.path.insert(0, str(Path(__file__).parent.parent.parent.parent))
 from aim_memory.engine import VectorBackend
 from aim_memory.embeddings import get_embedding
 
-DATA_DIR = Path("/home/kingb/aim-memeval/benchmarks/longmemeval/data")
+DATA_DIR = Path(f"{os.path.expanduser('~')}/aim-memeval/benchmarks/longmemeval/data")
 TEST_FILE  = DATA_DIR / "longmemeval_s_cleaned.json"
 
 def load_data():
     return json.loads(TEST_FILE.read_text())
 
 def main():
-    db_path = "/home/kingb/locomo-v2/benchmark_toolkit/database/longmemeval_lance_rag5.2/memory_lance"
+    db_path = f"{os.path.expanduser('~')}/locomo-v2/benchmark_toolkit/database/longmemeval_lance_rag5.2/memory_lance"
     questions = load_data()
     backend = VectorBackend(path=db_path)
 
@@ -92,7 +92,7 @@ def main():
 
     import datetime
     timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-    out_file = f"/home/kingb/locomo-v2/benchmark_toolkit/database/longmemeval_lance_rag5.2/A_I_M_LONGMEMEVAL_PROOF_LOG_{timestamp}.json"
+    out_file = f"{os.path.expanduser('~')}/locomo-v2/benchmark_toolkit/database/longmemeval_lance_rag5.2/A_I_M_LONGMEMEVAL_PROOF_LOG_{timestamp}.json"
     with open(out_file, "w") as f:
         json.dump({
             "benchmark": "LongMemEval (Cleaned S Dataset)",

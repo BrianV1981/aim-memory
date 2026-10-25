@@ -8,12 +8,12 @@ from datetime import datetime
 # ==========================================
 # CONFIGURATION
 # ==========================================
-PROJECT_ROOT = "/home/kingb/aim-locomo"
+PROJECT_ROOT = f"{os.path.expanduser('~')}/aim-locomo"
 TMUX_SESSION = "17"
 
 # Change this to locomo_v2_minicpm.json or locomo_v2_llava.json when testing flattened datasets
-DATA_FILE = "/home/kingb/locomo-v2/data/locomo_v2_web.json"
-PREDICTIONS_DIR = "/home/kingb/gemini-benchmarks/reports/locomo_v2/track_a/"
+DATA_FILE = f"{os.path.expanduser('~')}/locomo-v2/data/locomo_v2_web.json"
+PREDICTIONS_DIR = f"{os.path.expanduser('~')}/gemini-benchmarks/reports/locomo_v2/track_a/"
 # ==========================================
 
 def send_via_buffer(session, text):

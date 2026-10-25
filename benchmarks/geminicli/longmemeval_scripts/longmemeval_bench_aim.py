@@ -18,7 +18,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 from aim_memory.engine import VectorBackend
 from aim_memory.embeddings import get_embedding
 
-DATA_DIR = Path("/home/kingb/aim-memeval/benchmarks/longmemeval/data")
+DATA_DIR = Path(f"{os.path.expanduser('~')}/aim-memeval/benchmarks/longmemeval/data")
 ORACLE_FILE = DATA_DIR / "longmemeval_oracle.json"
 TEST_FILE  = DATA_DIR / "longmemeval_s_cleaned.json"
 
@@ -30,7 +30,7 @@ def load_data():
 def main():
     print("🚀 Starting A.I.M. LongMemEval benchmark (RAG 5.21 LanceDB Edition)")
 
-    db_path = "/home/kingb/locomo-v2/benchmark_toolkit/database/longmemeval_lance_rag5.2/memory_lance"
+    db_path = f"{os.path.expanduser('~')}/locomo-v2/benchmark_toolkit/database/longmemeval_lance_rag5.2/memory_lance"
     if not os.path.exists(db_path):
         print(f"Error: LanceDB database {db_path} not found.")
         sys.exit(1)

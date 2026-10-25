@@ -1,3 +1,4 @@
+import os
 #!/usr/bin/env python3
 """
 Build LongMemEval LanceDB with speaker-boundary chunking (500-1500 chars) for RAG 5.2.
@@ -6,7 +7,7 @@ import sys, os, json, re
 from pathlib import Path
 
 # Add A.I.M. memeval root to path
-AIM_MEMEVAL_ROOT = "/home/kingb/aim-memeval"
+AIM_MEMEVAL_ROOT = f"{os.path.expanduser('~')}/aim-memeval"
 sys.path.insert(0, AIM_MEMEVAL_ROOT)
 sys.path.insert(0, os.path.join(AIM_MEMEVAL_ROOT, "aim_core"))
 
@@ -14,7 +15,7 @@ from aim_core.lance_backend import VectorBackend
 from aim_core.plugins.datajack.forensic_utils import get_embedding
 
 MD_DIR = Path(__file__).parent / "data" / "flight_recorders"
-TARGET_LANCE = "/home/kingb/locomo-v2/benchmark_toolkit/database/longmemeval_lance_rag5.2/memory_lance"
+TARGET_LANCE = f"{os.path.expanduser('~')}/locomo-v2/benchmark_toolkit/database/longmemeval_lance_rag5.2/memory_lance"
 
 backend = VectorBackend(path=TARGET_LANCE)
 table = backend.get_table()

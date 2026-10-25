@@ -5,8 +5,8 @@ import subprocess
 import glob
 from datetime import datetime
 
-PROJECT_ROOT = "/home/kingb/aim-locomo"
-DATA_FILE = "/home/kingb/locomo-v2/data/locomo_v2_qwen.json"
+PROJECT_ROOT = f"{os.path.expanduser('~')}/aim-locomo"
+DATA_FILE = f"{os.path.expanduser('~')}/locomo-v2/data/locomo_v2_qwen.json"
 
 # --- QUESTION BATCHING ---
 # The array slice of questions to run. 0 to 50 = Questions 1 through 50.
@@ -28,7 +28,7 @@ BOOT_DELAY_SECONDS = 15
 
 
 if not os.path.exists(DATA_FILE):
-    DATA_FILE = "/home/kingb/gemini-benchmarks/data/locomo_v2/locomo_track1_qwen_q1_to_50.json"
+    DATA_FILE = f"{os.path.expanduser('~')}/gemini-benchmarks/data/locomo_v2/locomo_track1_qwen_q1_to_50.json"
 
 def get_latest_transcript():
     # Gemini CLI saves transcripts for aim-locomo here
@@ -128,7 +128,7 @@ def run_ghost_operator():
     
     # Save to the benchmark_results folder with a timestamp to avoid overwriting RAG 5 / RAG 10 data
     timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-    out_dir = "/home/kingb/gemini-benchmarks/reports/locomo_v2/track_a"
+    out_dir = f"{os.path.expanduser('~')}/gemini-benchmarks/reports/locomo_v2/track_a"
     os.makedirs(out_dir, exist_ok=True)
     out_file = os.path.join(out_dir, f"trackA_predictions_{timestamp}.json")
     

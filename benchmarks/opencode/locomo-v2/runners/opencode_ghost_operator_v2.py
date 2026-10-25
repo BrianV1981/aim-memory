@@ -16,11 +16,11 @@ Protocol:
 import os, sys, json, time, subprocess, sqlite3
 from datetime import datetime
 
-PROJECT_ROOT = "/home/kingb/opencode-locomo"
-OPECODE_BIN = "/home/kingb/.opencode/bin/opencode"
+PROJECT_ROOT = f"{os.path.expanduser('~')}/opencode-locomo"
+OPECODE_BIN = f"{os.path.expanduser('~')}/.opencode/bin/opencode"
 MODEL = "deepseek/deepseek-v4-flash"
 OPECODE_DB = os.path.expanduser("~/.local/share/opencode/opencode.db")
-DATA_FILE = "/home/kingb/locomo-v2/data/locomo_v2_minicpm.json"
+DATA_FILE = f"{os.path.expanduser('~')}/locomo-v2/data/locomo_v2_minicpm.json"
 
 # --- QUESTION BATCHING ---
 START_QUESTION_INDEX = 0
@@ -247,7 +247,7 @@ def run_ghost_operator():
 
     # Output file
     timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-    out_dir = "/home/kingb/opencode-benchmarks/reports/locomo_v2/track_b"
+    out_dir = f"{os.path.expanduser('~')}/opencode-benchmarks/reports/locomo_v2/track_b"
     os.makedirs(out_dir, exist_ok=True)
     out_file = os.path.join(out_dir, f"opencode_trackB_{timestamp}.json")
 

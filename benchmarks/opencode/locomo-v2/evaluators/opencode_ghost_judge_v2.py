@@ -1,3 +1,4 @@
+import os
 #!/usr/bin/env python3
 """
 OpenCode Ghost Judge — evaluates Track B predictions using DeepSeek API.
@@ -6,11 +7,11 @@ Uses A.I.M.'s generate_reasoning() for DeepSeek API access (no tmux needed).
 """
 import sys, os, json, time, glob
 
-sys.path.insert(0, "/home/kingb/aim-opencode")
-sys.path.insert(0, "/home/kingb/aim-opencode/aim_core")
+sys.path.insert(0, f"{os.path.expanduser('~')}/aim-opencode")
+sys.path.insert(0, f"{os.path.expanduser('~')}/aim-opencode/aim_core")
 from aim_core.reasoning_utils import generate_reasoning
 
-HUB_ROOT = "/home/kingb/opencode-benchmarks"
+HUB_ROOT = f"{os.path.expanduser('~')}/opencode-benchmarks"
 
 # Auto-find latest opencode predictions
 pred_files = glob.glob(os.path.join(HUB_ROOT, "reports/locomo_v2/track_b/opencode_trackB_*.json"))

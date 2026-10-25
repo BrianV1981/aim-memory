@@ -1,16 +1,17 @@
+import os
 #!/usr/bin/env python3
 """
 Build LoCoMo V2 LanceDB with speaker-boundary chunking (500-1500 chars).
 Fixes the coarse 4000-char chunk problem identified in forensic analysis.
 """
 import sys, os, json, shutil, re
-sys.path.insert(0, "/home/kingb/opencode-locomo")
-sys.path.insert(0, "/home/kingb/opencode-locomo/aim_core")
+sys.path.insert(0, f"{os.path.expanduser('~')}/opencode-locomo")
+sys.path.insert(0, f"{os.path.expanduser('~')}/opencode-locomo/aim_core")
 from aim_core.lance_backend import VectorBackend
 from aim_core.plugins.datajack.forensic_utils import get_embedding
 
-ORACLE_FILE = "/home/kingb/locomo-v2/data/locomo_v2_minicpm.json"
-TARGET_LANCE = "/home/kingb/opencode-locomo/memory_lance"
+ORACLE_FILE = f"{os.path.expanduser('~')}/locomo-v2/data/locomo_v2_minicpm.json"
+TARGET_LANCE = f"{os.path.expanduser('~')}/opencode-locomo/memory_lance"
 CAPTION_KEY = "minicpm_caption"  # Change to "llava_caption" or "blip_caption" as needed
 
 with open(ORACLE_FILE) as f:

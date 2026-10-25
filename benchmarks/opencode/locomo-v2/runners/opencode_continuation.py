@@ -7,11 +7,11 @@ re-asks those questions, then continues with remaining questions.
 import os, sys, json, time, subprocess, sqlite3
 from datetime import datetime
 
-PROJECT_ROOT = "/home/kingb/opencode-locomo"
-OPECODE_BIN = "/home/kingb/.opencode/bin/opencode"
+PROJECT_ROOT = f"{os.path.expanduser('~')}/opencode-locomo"
+OPECODE_BIN = f"{os.path.expanduser('~')}/.opencode/bin/opencode"
 MODEL = "deepseek/deepseek-v4-flash"
 OPECODE_DB = os.path.expanduser("~/.local/share/opencode/opencode.db")
-DATA_FILE = "/home/kingb/locomo-v2/data/locomo_v2_final.json"
+DATA_FILE = f"{os.path.expanduser('~')}/locomo-v2/data/locomo_v2_final.json"
 
 # --- DELAY & TIMEOUT LOGIC ---
 PACING_DELAY_SECONDS = 30
@@ -215,7 +215,7 @@ def run_continuation(existing_file, output_file=None):
     # Output file
     if output_file is None:
         timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-        out_dir = "/home/kingb/benchmark_results/reports/locomo_v2/track_b"
+        out_dir = f"{os.path.expanduser('~')}/benchmark_results/reports/locomo_v2/track_b"
         os.makedirs(out_dir, exist_ok=True)
         output_file = os.path.join(out_dir, f"opencode_continuation_{timestamp}.json")
     print(f"Output: {output_file}")

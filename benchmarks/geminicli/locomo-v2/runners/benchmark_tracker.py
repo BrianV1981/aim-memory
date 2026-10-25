@@ -44,7 +44,7 @@ def track_quota():
                             turns += 1
                             
                             # Write to report
-                            with open("/home/kingb/aim-locomo/QUOTA_REPORT.md", "w") as rf:
+                            with open(f"{os.path.expanduser('~')}/aim-locomo/QUOTA_REPORT.md", "w") as rf:
                                 rf.write(f"# Benchmark Quota Tracker\n\n")
                                 rf.write(f"**Total Turns:** {turns}\n")
                                 rf.write(f"**Total Tokens:** {total_tokens:,}\n")
